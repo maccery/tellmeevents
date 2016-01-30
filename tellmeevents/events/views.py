@@ -16,7 +16,7 @@ class CategoriesView(View):
 
 class ResultsView(View):
     def get(self, request, page_number=1):
-        category_ids = [request.GET.get('category1'), request.GET.get('category2'), request.GET.get('category3')]
+        category_ids = [request.GET.get('category1', ''), request.GET.get('category2', ''), request.GET.get('category3', '')]
 
         data = services.get_events(category_ids, page_number)
         page_count = data['pagination']['page_count']

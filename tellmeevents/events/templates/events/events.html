@@ -1,9 +1,8 @@
 {% extends "events/layout.html" %}
 {% block content %}
 <h1><a href="/">Search:</a> What we found for you :)</h1>
-<b>Categories selected:</b>
 {% for category in categories %}
-    {{  category.name }}
+    <a href="/results?category1={{ category.id }}"><span class="label label-default">{{  category.name }}</span></a>
 {% endfor %}
 
 <h2>Events for these categories</h2>
