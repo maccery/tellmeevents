@@ -1,8 +1,12 @@
 <h1>Pick your favourite three categories, and we'll show you where to go</h1>
+<b>Categories selected:</b>
+{% for category_id in category_ids %}
+    {{  category_id }}
+{% endfor %}
 
+<h2>Events for these categories</h2>
 {% for event in events %}
 <div>
-hey
     {{ event.id }} {{ event.name.text }}
 </div>
 {% endfor %}

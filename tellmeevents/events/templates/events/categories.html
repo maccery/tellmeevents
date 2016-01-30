@@ -1,8 +1,25 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <h1>Pick your favourite three categories, and we'll show you where to go</h1>
 
-{% for category in categories %}
-<div>
-hey
-    {{ category.id }} {{ category.name }}
-</div>
-{% endfor %}
+<form action="" method="post">
+{% csrf_token %}
+<select name="categories[]">
+    <option value=""></option>
+    {% for category in categories %}
+        <option value="{{ category.id }}">{{ category.name }}</option>
+    {% endfor %}
+</select>
+<select name="categories[]">
+    <option value=""></option>
+    {% for category in categories %}
+        <option value="{{ category.id }}">{{ category.name }}</option>
+    {% endfor %}
+</select>
+<select name="categories[]">
+    <option value=""></option>
+    {% for category in categories %}
+    <option value="{{ category.id }}">{{ category.name }}</option>
+    {% endfor %}
+</select>
+<button class="button btn-default">Submit</button>
+</form>
