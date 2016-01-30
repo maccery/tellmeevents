@@ -2,8 +2,8 @@
 {% block content %}
 <h1>Pick your favourite three categories, and we'll show you where to go</h1>
 <b>Categories selected:</b>
-{% for category_id in category_ids %}
-    {{  category_id }}
+{% for category in categories %}
+    {{  category.name }}
 {% endfor %}
 
 <h2>Events for these categories</h2>
