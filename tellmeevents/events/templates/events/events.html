@@ -1,15 +1,23 @@
 {% extends "events/layout.html" %}
 {% block content %}
-<h1>Pick your favourite three categories, and we'll show you where to go</h1>
+<h1><a href="/">Search:</a> What we found for you :)</h1>
 <b>Categories selected:</b>
 {% for category in categories %}
     {{  category.name }}
 {% endfor %}
 
 <h2>Events for these categories</h2>
+<div class="row">
 {% for event in events %}
-<div>
-    {{ event.id }} {{ event.name.text }}
+    <div class="col-sm-3">
+        <b>{{ event.name.text }}</b>
+    </div>
+{% endfor %}
 </div>
+<hr>
+
+{% for x in range %}
+    <a href="/results/{{ x }}">{{ x }}</a>
 {% endfor %}
 {% endblock %}
+
