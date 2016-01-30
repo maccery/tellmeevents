@@ -120,3 +120,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+EVENTBRITE_API_KEY = os.environ['EVENTBRITE_API_KEY']

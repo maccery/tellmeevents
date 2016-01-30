@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.conf import settings
 from eventbrite import Eventbrite
 
 
@@ -11,7 +12,7 @@ def get_all_categories():
     :return:
     :return: List of categories
     """
-    eventbrite = Eventbrite('5NGHYUHHECWB3CBRXKY2')
+    eventbrite = Eventbrite(settings.EVENTBRITE_API_KEY)
     return eventbrite.get_categories()
 
 
@@ -22,12 +23,12 @@ def get_category(category_id):
     :param category_id:
     :return:
     """
-    eventbrite = Eventbrite('5NGHYUHHECWB3CBRXKY2')
+    eventbrite = Eventbrite(settings.EVENTBRITE_API_KEY)
     return eventbrite.get_category(category_id)
 
 
 def get_event(events_id):
-    eventbrite = Eventbrite('5NGHYUHHECWB3CBRXKY2')
+    eventbrite = Eventbrite(settings.EVENTBRITE_API_KEY)
     return eventbrite.get_event(events_id)
 
 
@@ -38,5 +39,5 @@ def get_events(category_ids, page_number):
     :return: List of events
     :param categories:
     """
-    eventbrite = Eventbrite('5NGHYUHHECWB3CBRXKY2')
+    eventbrite = Eventbrite(settings.EVENTBRITE_API_KEY)
     return eventbrite.event_search(**{'page': page_number, 'categories': category_ids})
