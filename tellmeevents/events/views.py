@@ -15,12 +15,11 @@ class CategoriesView(View):
 
 
 class ResultsView(View):
-    def post(self, request):
-        category_ids = request.POST.getlist('categories[]')
+    def get(self, request, page_number=1):
+        category_ids = [request.GET.get('category1'), request.GET.get('category2'), request.GET.get('category3')]
 
-        data = services.get_events(category_ids, 1)
+        data = services.get_events(category_ids, page_number)
         page_count = data['pagination']['page_count']
-        page_number = data['pagination']['page_number']
 
         events = data['events']
 

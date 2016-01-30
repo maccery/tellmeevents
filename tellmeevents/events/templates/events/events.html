@@ -16,8 +16,9 @@
 </div>
 <hr>
 
+<ul class="pagination pagination-sm">
 {% for x in range %}
-    <a href="/results/{{ x }}">{{ x }}</a>
+    <li><a href="/results/{{ x }}?{{ request.GET.urlencode }}">{{ x }}</a></li>
 {% endfor %}
+</ul>
 {% endblock %}
-
