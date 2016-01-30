@@ -33,5 +33,5 @@ class ResultsView(View):
         for category_id in category_ids:
             categories.append(services.get_category(category_id))
 
-        return render_to_response('events/events.html', {'events': events, 'range': range(1, page_count), 'page_count': page_count, 'page_number': page_number, 'categories': categories},
+        return render_to_response('events/events.html', {'events': events, 'range': range(1, page_count), 'page_count': page_count, 'page_number': page_number},
                                   context_instance=RequestContext(request))
