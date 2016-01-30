@@ -1,8 +1,8 @@
 <h1>Pick your favourite three categories, and we'll show you where to go</h1>
 
-{% for category in categories %}
+{% for event in events %}
 <div>
 hey
-    {{ category.id }} {{ category.name }}
+    {{ event.id }} {{ event.name.text }}
 </div>
 {% endfor %}
