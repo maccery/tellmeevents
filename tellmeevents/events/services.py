@@ -26,6 +26,11 @@ def get_category(category_id):
     return eventbrite.get_category(category_id)
 
 
+def get_event(events_id):
+    eventbrite = Eventbrite('5NGHYUHHECWB3CBRXKY2')
+    return eventbrite.get_event(events_id)
+
+
 def get_events(category_ids, page_number):
     """
     Given a set of categories, returns relevant events
@@ -34,4 +39,4 @@ def get_events(category_ids, page_number):
     :param categories:
     """
     eventbrite = Eventbrite('5NGHYUHHECWB3CBRXKY2')
-    return eventbrite.event_search(**{'page':page_number, 'categories': category_ids})
+    return eventbrite.event_search(**{'page': page_number, 'categories': category_ids})

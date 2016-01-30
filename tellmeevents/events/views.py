@@ -13,6 +13,11 @@ class CategoriesView(View):
         return render_to_response('events/categories.html', {'categories': categories},
                                   context_instance=RequestContext(request))
 
+class EventView(View):
+    def get(self, request, events_id):
+        event = services.get_event(events_id)
+
+        return render_to_response('events/event.html', {'event': event})
 
 class ResultsView(View):
     def get(self, request, page_number=1):

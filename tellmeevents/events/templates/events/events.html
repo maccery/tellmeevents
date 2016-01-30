@@ -9,7 +9,7 @@
 <div class="row">
 {% for event in events %}
     <div class="col-sm-3">
-        <b>{{ event.name.text }}</b>
+        <a href="/event/{{ event.id }}"><b>{{ event.name.text }}</b></a>
     </div>
 {% endfor %}
 </div>
