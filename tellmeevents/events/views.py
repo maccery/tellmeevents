@@ -1,10 +1,8 @@
 from django.shortcuts import render
-
-# Create your views here.
 from django.http import HttpResponse
 import services
 
-
+# Create your views here.
 def index(request):
     categories = services.get_categories()
-    return request, 'categories.html', categories
+    return render(request, 'events/categories.html', categories)
