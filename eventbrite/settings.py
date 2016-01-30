@@ -25,7 +25,7 @@ SECRET_KEY = 'nma-tjfl)!#q2vp@aqim3%4t5!a#_zv37)r_ua9yi7@k_krdxk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['tellmeevents.in', 'www.tellmeevents.in']
 
 
 # Application definition
