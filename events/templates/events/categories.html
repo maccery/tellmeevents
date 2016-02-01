@@ -1,8 +1,8 @@
 {% extends "events/layout.html" %}
 {% block content %}
-<h1>Pick your favourite three categories, and we'll show you where to go</h1>
-
-<form action="/results" method="get">
+<h1>Search</h1>
+<p>Pick your favourite three categories, and we'll show events from them!</p>
+<form action="{% url 'search' %}" method="get">
     {{ form }}
 <button class="btn btn-default">Submit</button>
 </form>

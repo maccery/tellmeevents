@@ -38,6 +38,8 @@ class ResultsView(View):
         if data:
             events = data['events']
             page_count = data['pagination']['page_count']
+
+            # Pass our returned data to the view. page_count is the total number of pages to paginate through
             return render_to_response('events/events.html',
                                       {'events': events, 'range': range(1, page_count), 'page_count': page_count})
         else:

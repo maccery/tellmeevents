@@ -1,5 +1,7 @@
-# tellmeevents
+# tellmeevents - Eventbrite API in Django
 A basic exploration of the Eventbrite API built using Django. Users are presented with categories, as given by Eventbrite's API, and can choose up to 3. They are then presented with events from that category.
+
+It is designed to be a very basic implementation with little to no styling done.
 
 ## Getting Started 
 ### Installation
@@ -22,7 +24,7 @@ Unit tests have been written with 96% code coverage. These mock the eventbrite A
 ## Structure
 The ``data.py`` file interacts directly with the Eventbrite API. This was designed to abstract the Eventbrite API from the views.
 
-``views.py`` contains basic logic about which templates are disabled.
+``views.py`` contains basic logic about which templates are displayed.
 
 ### Pagination
 The Eventbrite API is paginated, which was relatively hard to abstract.
