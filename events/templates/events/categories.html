@@ -3,24 +3,7 @@
 <h1>Pick your favourite three categories, and we'll show you where to go</h1>
 
 <form action="/results" method="get">
-<select name="category1">
-    <option value=""></option>
-    {% for category in categories %}
-        <option value="{{ category.id }}">{{ category.name }}</option>
-    {% endfor %}
-</select>
-<select name="category2">
-    <option value=""></option>
-    {% for category in categories %}
-        <option value="{{ category.id }}">{{ category.name }}</option>
-    {% endfor %}
-</select>
-<select name="category3">
-    <option value=""></option>
-    {% for category in categories %}
-    <option value="{{ category.id }}">{{ category.name }}</option>
-    {% endfor %}
-</select>
+    {{ form }}
 <button class="btn btn-default">Submit</button>
 </form>
 {% endblock %}

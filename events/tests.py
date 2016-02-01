@@ -104,6 +104,3 @@ class FunctionalTests(TestCase):
         mock_get_events.return_value = None
         response = self.client.get('/results', {})
         self.assertTemplateUsed(response, 'events/no_results.html')
-
-    def test_search(self):
-        
