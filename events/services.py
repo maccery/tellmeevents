@@ -15,7 +15,11 @@ class Category:
         :return:
         :return: List of categories
         """
-        return self.eventbrite.get_categories()['categories']
+        eventbrite_categories = self.eventbrite.get_categories()
+        if eventbrite_categories.status_code == 200:
+            return eventbrite_categories['categories']
+        else:
+            return None
 
     def get_category(self, category_id):
         """
@@ -24,7 +28,11 @@ class Category:
         :param category_id:
         :return:
         """
-        return self.eventbrite.get_category(category_id)
+        data = self.eventbrite.get_category(category_id)
+        if data.status_code == 200:
+            return data
+        else:
+            return None
 
     def get_categories(self, category_ids):
         """
@@ -51,7 +59,12 @@ class Event:
         :param events_id:
         :return:
         """
-        return self.get_event(events_id)
+
+        data = self.eventbrite.get_event(events_id)
+        if data.status_code == 200:
+            return data
+        else:
+            return None
 
     def get_events(self, category_ids, page_number):
         """
@@ -61,4 +74,8 @@ class Event:
         :param categories:
         """
 
-        return self.eventbrite.event_search(**{'page': page_number, 'categories': category_ids})
+        data = self.eventbrite.event_search(**{'page': page_number, 'categories': category_ids})
+        if data.status_code == 200:
+            return data
+        else:
+            return None
