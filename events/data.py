@@ -8,7 +8,7 @@ class Category:
     def __init__(self):
         self.eventbrite = Eventbrite(settings.EVENTBRITE_API_KEY)
 
-    def get_all_categories(self):
+    def all(self):
         """
         This returns all categories from the eventbrite API
 
@@ -21,7 +21,7 @@ class Category:
         else:
             return None
 
-    def get_category(self, category_id):
+    def get(self, category_id):
         """
         Given the id of a category, returns that eventbrite category object
 
@@ -34,7 +34,7 @@ class Category:
         else:
             return None
 
-    def get_categories(self, category_ids):
+    def get_multiple(self, category_ids):
         """
         Returns category objects for category ids given
 
@@ -43,7 +43,7 @@ class Category:
         """
         categories = []
         for category_id in category_ids:
-            categories.append(self.get_category(category_id))
+            categories.append(self.get(category_id))
 
         return categories
 
@@ -52,7 +52,7 @@ class Event:
     def __init__(self):
         self.eventbrite = Eventbrite(settings.EVENTBRITE_API_KEY)
 
-    def get_event(self, events_id):
+    def get(self, events_id):
         """
         Given an eventbrite ID, returns the event object
 
@@ -66,12 +66,12 @@ class Event:
         else:
             return None
 
-    def get_events(self, category_ids, page_number):
+    def get_multiple(self, category_ids, page_number):
         """
         Given a set of categories, returns relevant events
-
-        :return: List of events
-        :param categories:
+        :param category_ids:
+        :param page_number:
+        :return:
         """
 
         data = self.eventbrite.event_search(**{'page': page_number, 'categories': category_ids})

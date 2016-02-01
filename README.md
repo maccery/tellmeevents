@@ -15,7 +15,7 @@ A basic exploration of the Eventbrite API built using Django. Users are presente
 - You're done!
 
 ## Tests
-Unit tests have been written with 74% code coverage. These mock the eventbrite API responses and are designed to be as isolated as possible.
+Unit tests have been written with 96% code coverage. These mock the eventbrite API responses and are designed to be as isolated as possible.
 - Use ``env/bin/python manage.py test events.tests``
 - To see test coverage run ``coverage run --source='.' manage.py test events`` then ``coverage report``
 

@@ -7,7 +7,7 @@ from events.forms import SearchForm
 class CategoriesView(View):
     def get(self, request):
 
-        categories = Category().get_all_categories()
+        categories = Category().all()
 
         if categories:
             form = SearchForm(categories)
@@ -18,7 +18,7 @@ class CategoriesView(View):
 
 class EventView(View):
     def get(self, request, events_id):
-        event = Event().get_event(events_id)
+        event = Event().get(events_id)
 
         if event:
             return render_to_response('events/event.html', {'event': event})
@@ -28,10 +28,12 @@ class EventView(View):
 
 class ResultsView(View):
     def get(self, request, page_number=1):
-        category_ids = [request.GET.get('category1', ''), request.GET.get('category2', ''),
-                        request.GET.get('category3', '')]
+        category_ids = []
+        if request.GET.get('category1'): category_ids.append(int(request.GET.get('category1')))
+        if request.GET.get('category2'): category_ids.append(int(request.GET.get('category2')))
+        if request.GET.get('category3'): category_ids.append(int(request.GET.get('category3')))
 
-        data = Event().get_events(category_ids, page_number)
+        data = Event().get_multiple(category_ids, int(page_number))
 
         if data:
             events = data['events']
