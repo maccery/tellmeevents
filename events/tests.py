@@ -1,8 +1,8 @@
-from django.test import TestCase, Client, RequestFactory
-from django.core.urlresolvers import reverse
+from django.test import TestCase, Client
 import unittest
-from mock import Mock, patch, MagicMock
-from services import Event, Category
+
+from mock import patch, MagicMock
+from data import Event, Category
 
 
 class UnitTests(unittest.TestCase):
@@ -87,19 +87,19 @@ class FunctionalTests(TestCase):
     Tests that check that an error message is displayed if we have nothing returned
     """
 
-    @patch('events.services.Category.get_all_categories')
+    @patch('events.data.Category.get_all_categories')
     def test_homepage_no_categories_found(self, mock_get_all_categories):
         mock_get_all_categories.return_value = None
         response = self.client.get('/', {})
         self.assertTemplateUsed(response, 'events/no_categories_found.html')
 
-    @patch('events.services.Event.get_event')
+    @patch('events.data.Event.get_event')
     def test_homepage_no_categories_found(self, mock_get_event):
         mock_get_event.return_value = None
         response = self.client.get('/event/0/', {})
         self.assertTemplateUsed(response, 'events/no_event_found.html')
 
-    @patch('events.services.Event.get_events')
+    @patch('events.data.Event.get_events')
     def test_homepage_no_categories_found(self, mock_get_events):
         mock_get_events.return_value = None
         response = self.client.get('/results', {})
