@@ -9,10 +9,10 @@ It is designed to be a very basic implementation with little to no styling done.
 - Navigate to this folder
 - Install virtualenv using ``pip install virtualenv`` (if it's not already installed)
 - Create a virtualenv in your folder using ``virtualenv env``
-- Add ``export EVENTBRITE_API_KEY=YOUR_API_KEY`` to ``env/bin/actiate``
+- Add ``export EVENTBRITE_API_KEY=YOUR_API_KEY`` to ``env/bin/activate``
 - Run ``source env/bin/activate``
 - Install the dependencies using ``env/bin/pip install -r requirements.txt``
-- Start Django using ``env/bin/pip manage.py runserver``
+- Start Django using ``env/bin/python manage.py runserver``
 - Navigate to http://127.0.0.1:8000
 - You're done!
 
